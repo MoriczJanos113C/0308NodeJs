@@ -1,0 +1,6 @@
+app.get('/product/:id', (req, res)=> {
+    db.query("SELECT name, category, price, release_date FROM product WHERE id=?", req.params.id,  (err, result) => {
+        if (err) throw err;
+        res.send(result);
+    });
+});

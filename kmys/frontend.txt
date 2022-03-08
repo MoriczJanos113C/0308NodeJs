@@ -1,0 +1,5 @@
+a button helyére a product pageba
+
+
+
+<Link to={`/productPage${prod.id}`}>Leírás</Link>  
