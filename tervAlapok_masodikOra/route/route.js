@@ -7,7 +7,7 @@ const egyEtelTorleseMw = require('../middleWare/egyeteltorlese');
 const etelKeresMw = require('../middleWare/etelkeres');
 const etelModositasMw = require('../middleWare/etelmodositasa');
 
-function addroutes(app, db, myModel){
+function addRoutes(app, db, myModel){
     
     const objRep = {
         myModel,
@@ -25,5 +25,5 @@ function addroutes(app, db, myModel){
 
 
 
-module.exports = addroutes;
+module.exports = addRoutes;
 

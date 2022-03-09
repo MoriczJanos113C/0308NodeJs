@@ -84,7 +84,18 @@ nev hasznalat figyelése
 
 */
 
+/*
+hf
+ennek a tervezesnek mintajara
+egy végtelen nagysagu parkolohaz be es kiengedo kapujat kell leprogramozni addig h a tervet el kell kesziteni (backend tervet), beengedes rendzsam alapjan illetve ido belyeget teszunk a beengedeshez, amikor pedig kimegy az auto akkor ki kell torolni (azaz elment a parkolohazbol)
+modositas muveletre utvonal = rendszamot modositani
+keresni autora v idopontra idobelyeg, rendszam alapjan
+teljes mw struktura ennek alapjan
+postman teszteket elo kesziteni
 
+hf
+index.js, route.js oltoztetni fel megjegyzesekkel, mit milrt
+*/
 
 const express = require('express');
 const app = express();
@@ -106,7 +117,7 @@ app.get('/', (req, res, next) => {
 
 const {initDatabase} = require('./services/db');
 
-const addRoute = require('./route/route');
+const addRoutes = require('./route/route');
 
 app.use(express.static('public')); //statikus root
 
@@ -115,7 +126,7 @@ initDatabase( err, (db, myModel) => {
     return console.error(`DB error:${err}`); //későbbi fejlesztés esetén sem irunk utana ha ott a return
   }
 
-  addRoute(app, db, myModel);
+  addRoutes(app, db, myModel);
 })
 
 
