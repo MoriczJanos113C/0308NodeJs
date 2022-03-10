@@ -11,7 +11,7 @@ hf
 index.js, route.js oltoztetni fel megjegyzesekkel, mit milrt
 */
 
-const uuid = require('uuid');
+const uuid = require('uuid');//uuid modul meghivasa
 
 const rendszamokListajaMw = require('../middleWare/rendszamoklistaja');
 const rendszamMw = require('../middleWare/rendszam');
@@ -20,22 +20,23 @@ const egyRendszamMw = require('../middleWare/egyrendszam');
 const rendszamKeresMw = require('../middleWare/rendszamkeres');
 const rendszamModositasMw = require('../middleWare/rendszammodositas');
 
-function addRoutes(app, db, myModel){
+function addRoutes(app, db, myModel){//addroute function letrehozása és hozzá 3 paraméter
+    //myMode= model, db = adatbazis, uuid= id megadása
     
-    const objRep = {
+    const objRep = { //ez a modul
         myModel,
         db,
         uuid
     }
 
-    app.get('/etelek', rendszamokListajaMw(objRep));
-    app.get('/etel/:id', rendszamMw(objRep));
-    app.post('/etel', ujRendszamMw(objRep));
-    app.delete('/etel/:id', rendszamMw(objRep), egyRendszamMw(objRep));
-    app.post('/search', rendszamKeresMw(objRep));
-    app.patch('/etel/:id', rendszamMw(objRep), rendszamModositasMw(objRep));
+    app.get('/etelek', rendszamokListajaMw(objRep)); //module meghivasa bele megadni a modelt 
+    app.get('/etel/:id', rendszamMw(objRep));//module meghivasa bele megadni a modelt 
+    app.post('/etel', ujRendszamMw(objRep));//module meghivasa bele megadni a modelt 
+    app.delete('/etel/:id', rendszamMw(objRep), egyRendszamMw(objRep));//module meghivasa bele megadni a modelt 
+    app.post('/search', rendszamKeresMw(objRep));//module meghivasa bele megadni a modelt 
+    app.patch('/etel/:id', rendszamMw(objRep), rendszamModositasMw(objRep));//module meghivasa bele megadni a modelt 
 }
 
 
 
-module.exports = addRoutes;
+module.exports = addRoutes; //exprotalni tudjuk a modult ezzel
